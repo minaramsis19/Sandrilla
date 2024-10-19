@@ -1,7 +1,7 @@
 
-*{
+/* *{
     background-color: #f4f4f4;
-}
+} */
 
 .header {
     background-image: url('images/logo.jpg');
@@ -13,9 +13,14 @@
     align-items: center;
 }
 .header h1 {
+    /* font-size: 3rem;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+    margin: 0; */
+    margin-top: auto;
     font-size: 3rem;
     text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
-    margin: 0;
+    margin: -1px;
+    margin-top: 332px;
 }
 
 .about-us {
@@ -35,4 +40,35 @@
     max-width: 800px;
     margin-left: auto;
     margin-right: auto;
+}
+
+.contact-form {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f2f2f2;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-align: right;
+}
+h2 {
+    text-align: center;
+}
+
+.contact-section {
+    background-color: #fff; /* لون الخلفية */
+    border: 1px solid #ddd; /* الحدود */
+    padding: 20px;
+}
+
+.form-label {
+    font-weight: bold;
+}
+
+.btn-primary {
+    background-color: #009999; /* لون زر إرسال */
+}
+
+footer {
+    background-color: #ccc;
 }
