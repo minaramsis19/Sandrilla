@@ -72,3 +72,13 @@ h2 {
 footer {
     background-color: #ccc;
 }
+dl,
+ol,
+ul {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: center;
+    flex-direction: row-reverse;
+    padding: 0xp;
+}
