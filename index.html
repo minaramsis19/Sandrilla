@@ -30,7 +30,7 @@
                 <a class="nav-link active" aria-current="page" href="index.html">الصفحة الرئيسية</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">المنتجات</a>
+                <a class="nav-link" href="products.html">المفروشات</a>
             </li>
             </ul>
         </div>
@@ -74,29 +74,61 @@
     <!-- end About us -->
     
     <!-- start Contact us -->
-    <section class="contact-section">
-        <h2>تواصل معنا</h2>
-        <form>
-            <div class="mb-3">
-                <label for="name" class="form-label">الاسم:</label>
-                <input type="text" class="form-control" id="name" required>
-            </div>
-            <div class="mb-3">
-                <label for="email" class="form-label">البريد الإلكتروني:</label>
-                <input type="email" class="form-control" id="email" required>
-            </div>
-            <div class="mb-3">
-                <label for="message" class="form-label">الرسالة:</label>
-                <textarea class="form-control" id="message" rows="3"></textarea>
-            </div>
-            <button type="submit" class="btn btn-info">إرسال</button>
-        </form>
-    </section> 
+    <!-- إضافة مكتبة EmailJS -->
+<script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script type="text/javascript">
+    (function() {
+      emailjs.init("YOUR_USER_ID"); // ضع هنا معرف المستخدم الخاص بك من EmailJS
+    })();
+</script>
+
+<section class="contact-section">
+    <h2>تواصل معنا</h2>
+    <form id="contact-form">
+        <div class="mb-3">
+            <label for="name" class="form-label">الاسم:</label>
+            <input type="text" class="form-control" id="name" required>
+        </div>
+        <div class="mb-3">
+            <label for="email" class="form-label">البريد الإلكتروني:</label>
+            <input type="email" class="form-control" id="email" required>
+        </div>
+        <div class="mb-3">
+            <label for="message" class="form-label">الرسالة:</label>
+            <textarea class="form-control" id="message" rows="3" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-info">إرسال</button>
     </form>
+</section>
+
+<script type="text/javascript">
+    document.getElementById('contact-form').addEventListener('submit', function(event) {
+        event.preventDefault(); // لمنع إعادة تحميل الصفحة
+
+        // جمع البيانات من النموذج
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const message = document.getElementById('message').value;
+
+        // إعداد القيم لإرسالها مع EmailJS
+        const templateParams = {
+            from_name: name,
+            from_email: email,
+            message: message
+        };
+
+        // استخدام EmailJS لإرسال البيانات
+        emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams)
+            .then(function(response) {
+                alert('تم إرسال رسالتك بنجاح!');
+            }, function(error) {
+                alert('حدث خطأ أثناء إرسال الرسالة: ' + error);
+            });
+    });
+</script>
     <!-- end Contact us -->
     
     <!-- start Footer -->
-    <footer>
         <footer class="footer text-center py-3">
             <div class="container">
                 <p>Designed by Team P19</p>
@@ -107,7 +139,6 @@
                 </ul>
             </div>
         </footer>
-    </footer>
     <!-- end Footer -->
     
     <!-- icons -->
